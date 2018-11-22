@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  api:
+    build: .
+    command: python /code/manage.py migrate --noinput
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+    - ./api:/code
+    ports:
+    - 8000:8000
+    environment:
+    - SECRET_KEY=changemeinprod
+
+  react:
+    image: "node:8"
+    user: "node"
+    working_dir : /home/node/app
+    environment:
+    - NODE_ENV=production
+    volumes:
+    - type : bind
+      source : ./
+      target : /home/node/app
+    ports:
+    - 3000:3000
+    command: "./node.sh"
