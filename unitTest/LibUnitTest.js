@@ -5,7 +5,16 @@ const config = require('./Test')
 
 var i = 0;
 
-async function runTest(test)
+var temp = 0;
+var TEST = []
+
+for(let test in config)
+{
+    TEST[temp++] = test;
+}
+
+
+function runTest(test)
 {
     var param = config[test];
 
@@ -29,13 +38,10 @@ async function runTest(test)
                 console.log(param.result);
                 console.log('');
             }
+            if (TEST.length != i)
+                runTest(TEST[i])
         })
     });
-
-
 }
 
-for(var test in config)
-{
-    runTest(test);
-}
+runTest(TEST[0]);
