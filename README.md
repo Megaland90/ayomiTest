@@ -22,7 +22,7 @@ Password :
 ## Run unitTest APi
 
 Open dir :
-### `.\uniTest`
+### `./uniTest`
 
 RunTest : 
 ### `chmod 777 run.sh && ./run.sh`
@@ -30,7 +30,7 @@ RunTest :
 ## Run unitTest selenium web extension
 
 Open dir :
-### `.\uniTest`
+### `./uniTest`
 
 RunTest : 
 ### `load Test.side`
